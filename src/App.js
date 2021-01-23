@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Table from './Table'
 import './App.css'
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 function App() {
   const [technologies, setTechnologies] = useState([])
-  const [countedTechnologies, setCountedTechnologies] = useState({})
+  const [data, setData] = useState([])
 
   const fetchTechnologies = async () => {
     try {
@@ -20,7 +24,8 @@ function App() {
       techs.forEach(el => {
         counter[el] ? counter[el]++ : counter[el] = 1
       })
-      setCountedTechnologies(counter)
+
+      setData(Object.keys(counter).map(key => ({ name: key, amount: counter[key] })))
     } catch (error) {
       console.error(error)
     }
@@ -32,9 +37,7 @@ function App() {
 
   return (
     <>
-      {Object.keys(countedTechnologies).map(key => (
-        <p>{key} {countedTechnologies[key]}</p>
-      ))}
+      <Table data={data} />
     </>
   )
 }
