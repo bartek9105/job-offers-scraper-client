@@ -6,7 +6,7 @@ const Table = ({ data }) => {
     <div>
       <div className="card">
         <DataTable value={data} sortField="amount" scrollable scrollHeight="500px">
-          <Column field="name" header="Technology" sortable></Column>
+          <Column field="technology" header="Technology" ></Column>
           <Column field="amount" header="Offers amount" sortable></Column>
         </DataTable>
       </div>

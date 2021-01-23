@@ -7,25 +7,25 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
 function App() {
-  const [technologies, setTechnologies] = useState([])
-  const [data, setData] = useState([])
+  const [offers, setOffers] = useState([])
+  const [technologiesCounter, setTechnologiesCounter] = useState({})
 
   const fetchTechnologies = async () => {
     try {
       const technologies = await axios.get('http://localhost:5000/api/v1/offers')
-      setTechnologies(technologies.data)
-      const counter = {}
+      setOffers(technologies.data)
+
       const techs = []
-      technologies.data.map(technology => {
-        technology.technologies.map(item => {
-          item.technologies.map(el => techs.push(el))
-        })
-      })
-      techs.forEach(el => {
-        counter[el] ? counter[el]++ : counter[el] = 1
+      const counter = {}
+
+      offers.map(offer => offer.offers.map(el => el.technologies.map(item => techs.push(item))))
+
+      techs.forEach(tech => {
+        counter[tech] ? counter[tech]++ : counter[tech] = 1
       })
 
-      setData(Object.keys(counter).map(key => ({ name: key, amount: counter[key] })))
+      setTechnologiesCounter(Object.keys(counter).map(key => ({ technology: key, amount: counter[key] })))
+
     } catch (error) {
       console.error(error)
     }
@@ -36,9 +36,10 @@ function App() {
   }, [])
 
   return (
-    <>
-      <Table data={data} />
-    </>
+    <div className="app">
+      <h1>Technologies popularity</h1>
+      <Table data={technologiesCounter} />
+    </div>
   )
 }
 
