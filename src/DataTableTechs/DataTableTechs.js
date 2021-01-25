@@ -25,12 +25,6 @@ const DataTableTechs = ({ data }) => {
               </tbody>
             </>
           ))}
-          <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
         </Table>
       </section>
     </div>
