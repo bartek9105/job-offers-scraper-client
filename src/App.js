@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import DataTable from './DataTable/DataTable'
+import AppNav from './AppNav/AppNav'
 
 function App() {
   const [technologiesCount, setTechnologiesCount] = useState([])
@@ -22,9 +23,12 @@ function App() {
   }, [])
 
   return (
-    <div className='app'>
-      <DataTable data={technologiesCount} />
-    </div>
+    <>
+      <AppNav />
+      <div className='app'>
+        <DataTable data={technologiesCount} />
+      </div>
+    </>
   )
 }
 
