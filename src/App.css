@@ -1,4 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+}
+
+body {
+  background-color: #343a40 !important;
+}
+
 .app {
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1100px;
+  padding: 2rem;
 }

@@ -1,0 +1,8 @@
+.data-header {
+  margin-bottom: 3rem;
+}
+
+.data-table {
+  height: 500px; 
+  overflow-y: scroll;
+}

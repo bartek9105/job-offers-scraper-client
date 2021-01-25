@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import Table from './Table'
+import DataTable from './DataTable/DataTable'
 
 function App() {
   const [technologiesCount, setTechnologiesCount] = useState([])
@@ -23,8 +23,7 @@ function App() {
 
   return (
     <div className='app'>
-      <h1>Technologies popularity</h1>
-      <Table data={technologiesCount} />
+      <DataTable data={technologiesCount} />
     </div>
   )
 }
