@@ -2,3 +2,7 @@
   height: 500px; 
   overflow-y: scroll;
 }
+
+.tech-name {
+  padding-left: 2rem !important;
+}

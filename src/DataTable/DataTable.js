@@ -3,7 +3,7 @@ import './DataTable.css'
 
 const DataTable = ({ data }) => {
   return (
-    <>
+    <div id="technologies">
       <h3 className="data-header">Technologies popularity</h3>
       <section className="data-table">
         <Table striped bordered hover variant="dark">
@@ -23,7 +23,7 @@ const DataTable = ({ data }) => {
           </tbody>
         </Table>
       </section>
-    </>
+    </div>
   );
 }
 
